@@ -4,19 +4,19 @@ import React from "react";
 import RenderTag from "./RenderTag";
 
 const hotQuestions = [
-  { _id: 1, title: "how do I use express as a custom server in NextJS?" },
-  { _id: 2, title: "What is life and how am I supposed to live it?" },
-  { _id: 3, title: "Where is my mind?" },
-  { _id: 4, title: "Do dolphins have a language?" },
-  { _id: 5, title: "Tell me about your riskiest boner" },
+  { _id: "1", title: "how do I use express as a custom server in NextJS?" },
+  { _id: "2", title: "What is life and how am I supposed to live it?" },
+  { _id: "3", title: "Where is my mind?" },
+  { _id: "4", title: "Do dolphins have a language?" },
+  { _id: "5", title: "Tell me about your riskiest boner" },
 ];
 
 const popularTags = [
-  { _id: 1, name: "javascript", totalQuestions: 5 },
-  { _id: 2, name: "react", totalQuestions: 5 },
-  { _id: 3, name: "express", totalQuestions: 5 },
-  { _id: 4, name: "vue", totalQuestions: 2 },
-  { _id: 5, name: "mongoose", totalQuestions: 5 },
+  { _id: "1", name: "javascript", totalQuestions: 5 },
+  { _id: "2", name: "react", totalQuestions: 5 },
+  { _id: "3", name: "express", totalQuestions: 5 },
+  { _id: "4", name: "vue", totalQuestions: 2 },
+  { _id: "5", name: "mongoose", totalQuestions: 5 },
 ];
 
 const RightSidebar = () => {

@@ -4,8 +4,15 @@ import LocalSearch from "@/components/shared/search/LocalSearch";
 import Filter from "@/components/shared/Filter";
 import { HomePageFilters } from "@/constants/filters";
 import HomeFilters from "@/components/home/HomeFilters";
+import NoResult from "@/components/shared/search/NoResult";
+import QuestionCard from "@/components/cards/QuestionCard";
+import { getQuestions } from "@/lib/actions/question.action";
 
-export default function Home() {
+export default async function Home() {
+  const result = await getQuestions({});
+
+  console.log(result.questions);
+
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -35,6 +42,31 @@ export default function Home() {
       </div>
 
       <HomeFilters />
+
+      <div className="mt-10 flex w-full flex-col gap-6">
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
+            <QuestionCard
+              key={question._id}
+              _id={question._id}
+              title={question.title}
+              tags={question.tags}
+              author={question.author}
+              upvotes={question.upvotes}
+              views={question.views}
+              answers={question.answers}
+              createdAt={question.createdAt}
+            />
+          ))
+        ) : (
+          <NoResult
+            title="There's no question to show"
+            description="Be the first to break the silence! Ask a Question and kickstart the discussion. Our query could be the next bigg thing others learn from. Get involved!"
+            link="/ask-question"
+            linkTitle="Ask a Question"
+          />
+        )}
+      </div>
     </>
   );
 }
